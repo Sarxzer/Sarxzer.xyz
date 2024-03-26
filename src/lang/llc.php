@@ -232,17 +232,16 @@ return [
 'blogs_index_by_you' => 'By u',
 'blogs_index_by' => 'By ',
 
+# blogs my-blogs.php
+'blogs_my-blogs_title' => 'Mah blobs',
+'blogs_my-blogs_created' => 'Kreated on ',
+'blogs_my-blogs_edited' => 'Edited on ',
+'blogs_my-blogs_logged' => 'Plz log in to see ur blobs',
 
-    # blogs my-blogs.php
-    'blogs_my-blogs_title' => 'My blogs',
-    'blogs_my-blogs_created' => 'Created on ',
-    'blogs_my-blogs_edited' => 'Edited on ',
-    'blogs_my-blogs_logged' => 'You must be logged in to see your blogs',
+#footer.php
+'footer_copyright' => '© 2024 Sarxzer.xyz - Al rightz rezerved',
+'footer_love' => 'Made wif <i class="fa-solid fa-heart"></i> by Sarxzer'
 
-
-    #footer.php
-    'footer_copyright' => '© 2024 Sarxzer.xyz - All rights reserved',
-    'footer_love' => 'Made with <i class="fa-solid fa-heart"></i> by Sarxzer'
 ]
 
 
