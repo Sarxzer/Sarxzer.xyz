@@ -19,6 +19,7 @@ return [
 'menu_admin' => '> Admin',
 
 # index.php
+'index_title' => '<Sarkzewr/>',
 'index_welcome_back' => 'Oh hai, welcum bak, ',
 'index_my_description_1'=> 'Oh hai, I\'m Nathan, a ',
 'index_my_description_2'=> '-yeerz-old French passionate code ninja.<br>Started codez when I wuz 12, now I\'m a master in many coding languages n\' frameworks.',
@@ -240,7 +241,7 @@ return [
 
 #footer.php
 'footer_copyright' => '© 2024 Sarxzer.xyz - Al rightz rezerved',
-'footer_love' => 'Made wif <i class="fa-solid fa-heart"></i> by Sarxzer'
+'footer_love' => 'Made wif <i class="fa-solid fa-heart"></i> by Sarkzewr'
 
 ]
 

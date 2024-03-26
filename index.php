@@ -11,7 +11,7 @@
         <? include 'header.php'; ?>
 
 
-        <title>Sarxzer</title>
+        <title><? echo translate('index_title') ?></title>
     </head>
     <body>
 
@@ -81,7 +81,7 @@
             document.getElementById('age').textContent = timeSince('2007-05-26', 'years')
             const title = document.getElementById('title');
             simulateDeleting(100, title);
-            simulateTyping('<Sarxzer/>', 100, title);
+            simulateTyping('<? echo translate('index_title') ?> ', 100, title);
         </script>
     </body>
 </html>

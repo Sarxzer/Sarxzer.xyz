@@ -12,32 +12,47 @@
     <h1 class="title small" id="title">.</h1>
 
     <div id="password-generator">
-        <form action="">
-            <label for="lenght">Length: </label>
-            <input type="text" name="length" id="length" placeholder="Length" value="8">
-            <br>
-            <label for="uppercase">Uppercase: </label>
-            <input type="checkbox" name="uppercase" id="uppercase" checked>
-            <br>
-            <label for="lowercase">Lowercase: </label>
-            <input type="checkbox" name="lowercase" id="lowercase" checked>
-            <br>
-            <label for="numbers">Numbers: </label>
-            <input type="checkbox" name="numbers" id="numbers" checked>
-            <br>
-            <label for="symbols">Symbols: </label>
-            <input type="checkbox" name="symbols" id="symbols" checked>
-            <br>
-            <input type="submit" value="Generate">
-        </form>
+        <label for="lenght">Length: </label>
+        <select name="length" id="length">
+            <option value="8">8</option>
+            <option value="16">16</option>
+            <option value="20">20</option>
+            <option value="24">24</option>
+            <option value="32">32</option>
+            <option value="64">64</option>
+            <option value="128">128</option>
+            <option value="256">256</option>
+            <option value="512">512</option>
+            <option value="1024">1024</option>
+        </select>
+        <br>
+        <label for="random">Random: </label>
+        <input type="radio" name="type" id="random" checked>
+        <label for="pronounceable">With words: </label>
+        <input type="radio" name="type" id="pronounceable">
+        <br>
+        <label for="uppercase">Uppercase: </label>
+        <input type="checkbox" name="uppercase" id="uppercase" checked>
+        <br>
+        <label for="lowercase">Lowercase: </label>
+        <input type="checkbox" name="lowercase" id="lowercase" checked>
+        <br>
+        <label for="numbers">Numbers: </label>
+        <input type="checkbox" name="numbers" id="numbers" checked>
+        <br>
+        <label for="symbols">Symbols: </label>
+        <input type="checkbox" name="symbols" id="symbols" checked>
+        <br>
+        <input type="button" value="Generate">
 
         <div id="password">
             <p>Generated password: </p>
-            <p id="password-text"></p>
+            <p id="password-text" style="word-break: break-all;"></p>
+            <button onclick="navigator.clipboard.writeText(document.getElementById('password-text').innerText)">Copy</button>
         </div>
 
         <script>
-            const generatePassword = (length, uppercase, lowercase, numbers, symbols) => {
+            const generatePasswordRandom = (length, uppercase, lowercase, numbers, symbols) => {
                 let password = '';
                 let characters = '';
                 if (uppercase) characters += 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -49,15 +64,38 @@
                 }
                 return password;
             };
-            document.querySelector('form').addEventListener('submit', event => {
-                event.preventDefault();
-                const length = document.querySelector('#length').value;
-                const uppercase = document.querySelector('#uppercase').checked;
-                const lowercase = document.querySelector('#lowercase').checked;
-                const numbers = document.querySelector('#numbers').checked;
-                const symbols = document.querySelector('#symbols').checked;
-                const password = generatePassword(length, uppercase, lowercase, numbers, symbols);
-                document.querySelector('#password-text').innerText = password;
+
+            const generatePasswordPronounceable = (length) => {
+                let password = '';
+                let Words = [];
+                fetch(`https://random-word-api.herokuapp.com/word?number=${length}&lang=<? echo ($lang !== 'llc') ? $lang : 'en' ; ?>`)
+                    .then(response => response.json())
+                    .then(words => {
+                        words.forEach(word => {
+                            word = word.charAt(0).toUpperCase() + word.slice(1);
+                            Words.push(word);
+                        });
+                        document.getElementById('password-text').innerText = Words.join('-');
+                    })
+                    .catch(error => {
+                        console.error('Error:', error);
+                        document.getElementById('password-text').innerText = 'Sorry, the words api is down. Please try again later.';
+                    });
+            };
+        
+            document.querySelector('input[type="button"]').addEventListener('click', () => {
+                const type = document.querySelector('input[name="type"]:checked').id;
+                const length = document.getElementById('length').value;
+                const uppercase = document.getElementById('uppercase').checked;
+                const lowercase = document.getElementById('lowercase').checked;
+                const numbers = document.getElementById('numbers').checked;
+                const symbols = document.getElementById('symbols').checked;
+
+                if(type === 'random') {
+                    document.getElementById('password-text').innerText = generatePasswordRandom(length, uppercase, lowercase, numbers, symbols);
+                } else if(type === 'pronounceable') {
+                    document.getElementById('password-text').innerText = generatePasswordPronounceable(length);
+                }
             });
         </script>
     </div>
@@ -69,7 +107,7 @@
     <script>
         const title = document.getElementById('title');
         simulateDeleting(100, title);
-        simulateTyping('base page', 100, title);
+        simulateTyping('Password Generator', 100, title);
     </script>
 </body>
 </html>
