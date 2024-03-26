@@ -55,7 +55,7 @@
                 if ($user['role'] == 'admin') {
                     echo '<p class="user-info">'.translate('account_user_infos_id'). $pageUser['id'] . '</p>';
                     echo '<p class="user-info">'.translate('account_user_infos_username'). $pageUser['username'] . '</p>';
-                    echo '<p class="user-info">'.translate('account_user_infos_email'). openssl_decrypt($pageUser['email'], $secret['algo'], $secret['key'], 0, $secret['iv']) . '</p>';
+                    echo '<p class="user-info">'.translate('account_user_infos_email'). openssl_decrypt($pageUser['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']) . '</p>';
                     echo '<p class="user-info">'.translate('account_user_infos_role'). $pageUser['role'] . '</p>';
 
                     if (isset($pageUser['website'])) {

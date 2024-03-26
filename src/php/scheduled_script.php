@@ -19,7 +19,7 @@
             $backup->execute([
                 'id' => $user['id'],
                 'username' => $user['username'],
-                'email' => openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']),
+                'email' => openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']),
                 'password' => $user['password'],
                 'birthday' => $user['birthday'],
                 'country' => $user['country'],

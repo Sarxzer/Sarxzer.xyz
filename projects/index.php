@@ -46,15 +46,12 @@
                 <img src="/src/img/logo-fiverr.png" alt="Fiverr logo">
             </a>
         </div>
-<<<<<<< HEAD
         <div class="project-card">
             <a href="/projects/pass-gen" class="card">
                 > Password Generator
                 <img src="/src/png/pass-gen-logo.png" alt="Password Generator">
             </a>
         </div>
-=======
->>>>>>> 922ad2846663346145f7fc97b287e3a178c1bb11
     </div>
 
 
@@ -62,7 +59,7 @@
 
 
     <script>
-        snow(150, 15, 25, 15, 5);
+        //snow(150, 15, 25, 15, 5);
         
         const title = document.getElementById('title');
         simulateDeleting(100, title);
