@@ -1,0 +1,13 @@
+faire le css de :
+- page de notif
+- mes blogs (buggé)
+- parametre
+- menu admin
+- user list
+- blog list
+- email list
+- comment list
+- contact
+
+faire la traduction de :
+- tout sauf la page d'acceuil, page de conexion et parametre

@@ -1,0 +1,1359 @@
+body {
+  font-family: "Ubuntu", serif;
+  background-color: black;
+  color: bisque;
+  scrollbar-color: bisque black;
+  scrollbar-width: thin;
+}
+
+div.navbar {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+}
+div.navbar a {
+  font-family: "Ubuntu", serif;
+  font-weight: 500;
+  border-bottom: none;
+  margin: 0;
+  padding: 5px;
+  min-width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+}
+div.navbar a.active {
+  background-color: #1f1f1f;
+}
+div.navbar a.active:hover {
+  background-color: #1f1f1f;
+  color: bisque;
+}
+div.navbar a.account-button {
+  margin-left: auto;
+}
+div.navbar div.dropdown {
+  display: block;
+}
+div.navbar div.dropdown a.btn {
+  display: block;
+  margin: 0;
+  padding: 5px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  min-width: 100px;
+}
+div.navbar div.dropdown a.btn:hover + div.content {
+  display: flex;
+}
+div.navbar div.dropdown div.content:hover {
+  display: flex;
+}
+div.navbar div.dropdown div.content {
+  display: none;
+  flex-direction: column;
+  position: absolute;
+  background-color: black;
+  min-width: 160px;
+  z-index: 1;
+  border: bisque solid 2px;
+}
+div.navbar div.dropdown.account-button {
+  margin-left: auto;
+}
+div.navbar div.dropdown.account-button div.content {
+  right: 0;
+}
+div.navbar form select {
+  align-self: right;
+  font-family: "Ubuntu", serif;
+  font-weight: 500;
+  border-bottom: none;
+  margin: 0;
+  padding: 5px;
+  min-width: 100px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  font-size: 20px;
+  background-color: black;
+  color: bisque;
+  border: bisque solid 2px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+div.navbar form select:hover {
+  background-color: bisque;
+  color: black;
+}
+div.navbar form select option {
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.navbar form select option:hover {
+  background-color: bisque;
+  color: black;
+}
+
+h1.title {
+  text-align: center;
+  font-size: 100px;
+  font-weight: bold;
+  margin-bottom: 20%;
+}
+h1.title.small {
+  font-size: 50px;
+  margin-bottom: 150px;
+}
+h1.title.error {
+  color: red;
+}
+@media (max-width: 540px) {
+  h1.title {
+    font-size: 50px;
+    margin-bottom: 10%;
+  }
+  h1.title.small {
+    font-size: 30px;
+    margin-bottom: 50px;
+  }
+}
+
+p {
+  display: block;
+  font-size: 15px;
+}
+p.text {
+  font-size: 15px;
+}
+p.text.left {
+  text-align: left;
+  padding-left: 5px;
+  padding-right: 50%;
+  border-left: 5px solid;
+}
+p.text.left.long {
+  padding-right: 10%;
+}
+p.text.left.small {
+  font-size: 15px;
+  border-left: 2px solid;
+}
+@media (max-width: 540px) {
+  p.text.left {
+    font-size: 15px;
+    padding-right: 20%;
+  }
+}
+p.text.right {
+  text-align: right;
+  padding-right: 5px;
+  padding-left: 50%;
+  border-right: 5px solid;
+}
+p.text.right.long {
+  padding-left: 10%;
+}
+p.text.right.small {
+  font-size: 15px;
+  border-right: 2px solid;
+}
+@media (max-width: 540px) {
+  p.text.right {
+    font-size: 15px;
+    padding-left: 20%;
+  }
+}
+p.text.error {
+  color: red;
+  border: none;
+}
+
+a:not(.card) {
+  font-family: "Ubuntu", serif;
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border-bottom: bisque solid 2px;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+a:not(.card):hover {
+  background-color: bisque;
+  color: black;
+}
+a:not(.card).left {
+  float: left;
+  margin-left: 5px;
+}
+a:not(.card).right {
+  float: right;
+  margin-right: 5px;
+}
+a:not(.card).error {
+  color: red;
+  border: none;
+  text-decoration: none;
+  display: block;
+}
+a:not(.card).error:hover {
+  color: red;
+  background-color: black;
+}
+a:not(.card).hidden {
+  color: bisque;
+  text-decoration: none;
+  border: none;
+}
+a:not(.card).hidden:hover {
+  background-color: black;
+  color: bisque;
+}
+a:not(.card).md {
+  font-size: 15px;
+  border-bottom: 1px solid bisque;
+}
+a:not(.card).md.left {
+  float: left;
+  margin-left: 5px;
+}
+a:not(.card).md.right {
+  float: right;
+  margin-right: 5px;
+}
+@media (max-width: 540px) {
+  a:not(.card) {
+    font-size: 15px;
+    border-bottom: 1px solid bisque;
+  }
+}
+
+div.code-toolbar pre {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 15px;
+  color: bisque;
+  border: bisque solid 2px;
+  padding: 5px;
+  background-color: black;
+}
+div.code-toolbar pre.left {
+  float: left;
+  margin-left: 5px;
+  width: 50%;
+}
+div.code-toolbar pre.right {
+  float: right;
+  margin-right: 5px;
+  width: 50%;
+}
+div.code-toolbar .toolbar-item {
+  margin-top: 5px;
+  margin-right: 5px;
+}
+
+.scrolling-list {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  align-items: center;
+}
+
+.scrolling-project-card {
+  border: bisque solid;
+  width: 150px;
+  height: 185px;
+  display: inline-block;
+  margin-right: 10px;
+}
+@media (max-width: 540px) {
+  .scrolling-project-card {
+    width: 110px;
+    height: 140px;
+  }
+}
+.scrolling-project-card a {
+  text-align: center;
+  color: #ffe4c4;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+.scrolling-project-card a:not(.long) {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.scrolling-project-card a:not(.long) img {
+  width: 130px;
+  height: 130px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: black solid 0;
+  border-radius: 25px;
+  display: block;
+  mix-blend-mode: normal;
+}
+.scrolling-project-card a.long {
+  font-size: smaller;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.scrolling-project-card a.long img {
+  width: 130px;
+  height: 130px;
+  margin-left: 10px;
+  margin-top: 4px;
+  border: black solid 0;
+  border-radius: 25px;
+  display: block;
+}
+@media (max-width: 540px) {
+  .scrolling-project-card a:not(.long) {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .scrolling-project-card a:not(.long) img {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    margin-top: 10px;
+    border: black solid 0;
+    border-radius: 25px;
+    display: block;
+    mix-blend-mode: normal;
+  }
+  .scrolling-project-card a.long {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  .scrolling-project-card a.long img {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    margin-top: 4px;
+    border: black solid 0;
+    border-radius: 25px;
+    display: block;
+  }
+}
+.scrolling-project-card p.hidden {
+  display: none;
+}
+
+div.project-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+}
+
+div.project-card {
+  border: bisque solid;
+  width: 150px;
+  height: 185px;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+@media (max-width: 540px) {
+  div.project-card {
+    width: 110px;
+    height: 140px;
+  }
+}
+div.project-card a {
+  text-align: center;
+  color: #ffe4c4;
+  text-decoration: none;
+  font-weight: bold;
+  display: block;
+}
+div.project-card a:not(.long) {
+  font-size: 15px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+div.project-card a:not(.long) img {
+  width: 130px;
+  height: 130px;
+  margin-left: 10px;
+  margin-top: 10px;
+  border: black solid 0;
+  border-radius: 25px;
+  display: block;
+  mix-blend-mode: normal;
+}
+div.project-card a.long {
+  font-size: smaller;
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+div.project-card a.long img {
+  width: 130px;
+  height: 130px;
+  margin-left: 10px;
+  margin-top: 4px;
+  border: black solid 0;
+  border-radius: 25px;
+  display: block;
+}
+@media (max-width: 540px) {
+  div.project-card a:not(.long) {
+    font-size: 15px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  div.project-card a:not(.long) img {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    margin-top: 10px;
+    border: black solid 0;
+    border-radius: 25px;
+    display: block;
+    mix-blend-mode: normal;
+  }
+  div.project-card a.long {
+    font-size: 10px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+  div.project-card a.long img {
+    width: 100px;
+    height: 100px;
+    margin-left: 5px;
+    margin-top: 4px;
+    border: black solid 0;
+    border-radius: 25px;
+    display: block;
+  }
+}
+
+footer {
+  height: 100px;
+  background-color: black;
+  border-top: bisque solid 2px;
+  margin: 0;
+  margin-top: 50px;
+  padding-top: 5px;
+  white-space: nowrap;
+  text-align: center;
+}
+footer p.footer-text {
+  font-size: 15px;
+  margin: 0;
+}
+footer a {
+  margin: 5px;
+  margin-right: 10px;
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border: none;
+  display: inline-block;
+}
+footer div.link {
+  display: inline-block;
+  margin: 0;
+  margin-right: 10px;
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border: none;
+}
+footer div.link a {
+  margin: 0;
+  margin-right: 10px;
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border: none;
+}
+footer div.link a:hover {
+  color: bisque;
+  background-color: black;
+}
+footer .bottom-footer {
+  display: block;
+  margin: 10px;
+  font-size: 10px;
+  border: bisque solid 2px;
+  padding: 5px;
+  border-radius: 5px;
+}
+footer .bottom-footer .creative-commons {
+  display: inline-block;
+  margin: 0;
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border: none;
+}
+footer .bottom-footer .creative-commons img {
+  height: 15px;
+  margin: 0;
+  margin-right: 1px;
+  margin-left: 1px;
+}
+footer .bottom-footer a {
+  font-size: 15px;
+  color: bisque;
+  text-decoration: none;
+  border: none;
+  margin: 0;
+}
+footer .bottom-footer a img {
+  margin: 0;
+  margin-right: 5px;
+  height: 15px;
+}
+@media (max-width: 540px) {
+  footer .bottom-footer {
+    font-size: 7px;
+  }
+  footer .bottom-footer a {
+    font-size: 7px;
+  }
+  footer .bottom-footer a img {
+    height: 10px;
+  }
+  footer .bottom-footer .creative-commons {
+    font-size: 7px;
+  }
+  footer .bottom-footer .creative-commons img {
+    height: 10px;
+  }
+}
+
+div.blogs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+div.blogs div.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 180px;
+  height: 100px;
+  border: bisque solid 2px;
+}
+div.blogs div.post a.title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  width: 180px;
+  height: 70px;
+}
+div.blogs div.post a.author {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+  align-self: flex-end;
+  margin-right: 5px;
+  text-align: right;
+  text-decoration: none;
+  border: none;
+}
+
+div.connection {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+div.connection div.login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+div.connection div.login form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 70%;
+  border: bisque solid 2px;
+  padding: 10px;
+}
+div.connection div.login form input {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: border-bottom 0.5s ease-in-out;
+}
+div.connection div.login form input:focus {
+  border-bottom: bisque solid 4px;
+}
+div.connection div.login form input.submit {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.connection div.login form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+div.connection div.register {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+div.connection div.register form {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  width: 70%;
+  border: bisque solid 2px;
+  padding: 10px;
+}
+div.connection div.register form input {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.connection div.register form input.submit {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.connection div.register form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+div.connection div.register form input.submit:disabled {
+  border: #BDA98F solid 2px;
+  background-color: black;
+  color: #BDA98F;
+  cursor: default;
+}
+div.connection div.register form input.submit:disabled:hover {
+  background-color: black;
+  color: #BDA98F;
+}
+div.connection div.register form #password_strength p {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+@media (max-width: 540px) {
+  div.connection {
+    flex-direction: column;
+  }
+}
+
+div.user-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+div.user-infos .user-info-title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+}
+div.user-infos .user-info {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+}
+div.user-infos .bio {
+  font-size: 15px;
+  padding: 5px;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  text-align: left;
+  text-decoration: none;
+  border: bisque solid 4px;
+  width: 50%;
+  min-height: 250px;
+}
+div.user-infos .button {
+  padding: 2px;
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 15px;
+  width: 100px;
+  text-align: left;
+  text-decoration: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.user-infos .button:hover {
+  background-color: bisque;
+  color: black;
+}
+div.user-infos .blogs-title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+}
+div.user-infos .blogs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+div.user-infos .blogs div.post {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px;
+  width: 180px;
+  height: 100px;
+  border: bisque solid 2px;
+}
+div.user-infos .blogs div.post a.title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  width: 180px;
+  height: 70px;
+}
+div.user-infos .blogs div.post p.date {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+  align-self: flex-end;
+  margin-right: 5px;
+  text-align: right;
+  text-decoration: none;
+  border: none;
+}
+
+div.post-search form {
+  display: flex;
+  flex-direction: row;
+  margin: 10px;
+  width: 70%;
+  padding: 10px;
+}
+div.post-search form div {
+  display: flex;
+  flex-direction: column;
+}
+div.post-search form div input {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: border-bottom 0.5s ease-in-out;
+}
+div.post-search form input.submit {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  width: 150px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.post-search form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+div.post-search form select {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.post-search form option {
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+@media (max-width: 540px) {
+  div.post-search form {
+    flex-direction: column;
+    align-self: center;
+  }
+}
+
+div.blog-creation-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+div.blog-creation-zone form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  width: 90%;
+}
+div.blog-creation-zone form .title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+}
+div.blog-creation-zone form .title input {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.blog-creation-zone form .content {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+}
+div.blog-creation-zone form .content textarea {
+  margin: 0;
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 4px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+}
+div.blog-creation-zone form .submit {
+  padding: 3px;
+  margin: 0;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-align: left;
+  text-decoration: none;
+  border: bisque solid 3px;
+  background-color: black;
+  color: bisque;
+  font-size: 20px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.blog-creation-zone form .submit:hover {
+  background-color: bisque;
+  color: black;
+}
+
+div.blog-post {
+  width: 100%;
+}
+div.blog-post .title {
+  font-size: 20px;
+  margin: 0;
+  padding-top: 5px;
+  margin-top: 20px;
+  margin-bottom: 5px;
+  text-decoration: none;
+  border: none;
+}
+div.blog-post .author {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+  align-self: flex-end;
+  margin-right: 5px;
+  text-align: right;
+  text-decoration: none;
+  border: none;
+}
+div.blog-post .content {
+  font-size: 15px;
+  padding: 5px;
+  margin: 5px;
+  text-align: left;
+  text-decoration: none;
+  border: bisque solid 4px;
+  min-height: 250px;
+}
+
+div.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+div.comment-form form {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+  border: bisque solid 2px;
+  background-color: black;
+  margin: 5px;
+}
+div.comment-form form input {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  color: bisque;
+  background-color: black;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  width: 200px;
+  overflow-x: visible;
+  transition: width 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+div.comment-form form input:focus {
+  width: 500px;
+}
+div.comment-form form .submit {
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.comment-form form .submit:hover {
+  background-color: bisque;
+  color: black;
+}
+
+div.comment-zone {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+div.comment-zone .comment {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  border: bisque solid 2px;
+  background-color: black;
+  margin: 5px;
+  min-width: 300px;
+}
+div.comment-zone .comment .header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border: none;
+  background-color: black;
+  margin: 0;
+  padding: 0;
+  min-width: 290px;
+  padding: 5px;
+}
+div.comment-zone .comment .header .author {
+  font-size: 15px;
+  margin: 0;
+  margin-bottom: 5px;
+  align-self: flex-start;
+  margin-left: 5px;
+  text-align: left;
+  text-decoration: none;
+  border: none;
+}
+div.comment-zone .comment .header .date {
+  font-size: 10px;
+  margin: 0;
+  margin-bottom: 5px;
+  align-self: flex-end;
+  margin-right: 5px;
+  text-align: right;
+  text-decoration: none;
+  border: none;
+}
+div.comment-zone .comment .content {
+  font-size: 15px;
+  padding: 5px;
+  margin: 5px;
+  min-width: 280px;
+  overflow-wrap: break-word;
+  text-align: left;
+  text-decoration: none;
+}
+div.comment-zone .delete-button {
+  padding: 4px;
+  margin: 0;
+  text-align: left;
+  text-decoration: none;
+  background-color: black;
+  border: none;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.comment-zone .delete-button:hover {
+  background-color: bisque;
+  color: black;
+}
+
+button.logout-button {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 10px;
+  margin: 0;
+  text-align: center;
+  text-decoration: none;
+  background-color: black;
+  border: bisque solid 5px;
+  color: bisque;
+  font-size: 50px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+button.logout-button:hover {
+  background-color: bisque;
+  color: black;
+}
+
+div.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+}
+div.settings form#change_email {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+}
+div.settings form#change_email input {
+  margin: 0;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.settings form#change_email input.submit {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.settings form#change_email input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+div.settings .horizontal-column {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  justify-content: left;
+}
+div.settings .horizontal-column div#change_password {
+  border: bisque solid 2px;
+  margin: 10px;
+  width: 270px;
+}
+div.settings .horizontal-column div#change_password form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 10px;
+}
+div.settings .horizontal-column div#change_password form input {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div.settings .horizontal-column div#change_password form input.submit {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.settings .horizontal-column div#change_password form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+div.settings .horizontal-column div#delete_account {
+  border: bisque solid 2px;
+  margin: 10px;
+  width: 270px;
+}
+div.settings .horizontal-column div#delete_account form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 10px;
+}
+div.settings .horizontal-column div#delete_account form input {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  padding-bottom: 2px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: border-bottom 0.5s ease-in-out;
+}
+div.settings .horizontal-column div#delete_account form input.submit {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.settings .horizontal-column div#delete_account form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+
+div#contact-form {
+  border: bisque solid 2px;
+  margin: 10px;
+}
+div#contact-form form {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  padding: 10px;
+}
+div#contact-form form input {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  border: none;
+  border-bottom: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div#contact-form form select {
+  margin: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div#contact-form form option {
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div#contact-form form textarea {
+  margin: 0;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  padding: 5px;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+}
+div#contact-form form input.submit {
+  margin: 0;
+  margin-bottom: 5px;
+  margin-left: 10px;
+  margin-top: 10px;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div#contact-form form input.submit:hover {
+  background-color: bisque;
+  color: black;
+}
+
+/*Scrollbar*/
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: bisque;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #ffe4c4;
+}
+
+::-webkit-scrollbar-thumb:active {
+  background: #ffdbb3;
+}
+
+::-webkit-scrollbar-track {
+  background: #000000;
+  border: 0px none #ffffff;
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-track:hover {
+  background: #1f1f1f;
+}
+
+::-webkit-scrollbar-track:active {
+  background: #333333;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/*Scrollbar*/
