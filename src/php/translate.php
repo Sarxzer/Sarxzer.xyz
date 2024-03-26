@@ -18,7 +18,7 @@
     }
 
     if ($lang != 'en' && $lang != 'fr' && $lang != 'llc') {
-        $lang = 'en';
+        $lang = 'llc';
     }
 
     function translate($key) {

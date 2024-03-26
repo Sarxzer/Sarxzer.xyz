@@ -16,6 +16,7 @@
         <select name="lang" id="lang" onchange="this.form.submit()">
             <option value="en" <? echo $_SESSION['lang'] == 'en' ? 'selected' : '' ?>>🇬🇧 English</option>
             <option value="fr" <? echo $_SESSION['lang'] == 'fr' ? 'selected' : '' ?>>🇫🇷 Français</option>
+            <option value="llc" <? echo $_SESSION['lang'] == 'llc' ? 'selected' : '' ?>>😺 LOLcat</option>
         </select>
     </form>
 

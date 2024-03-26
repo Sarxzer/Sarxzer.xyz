@@ -19,6 +19,7 @@ return [
     'menu_admin' => '> Admin',
 
     # index.php
+    'index_title' => '<Sarxzer/>',
     'index_welcome_back' => 'Welcome back, ',
     'index_my_description_1'=> 'Meet me, Nathan, a ',
     'index_my_description_2'=> '-years-old French passionate programmer.<br>With a programming background starting from the age of 12, I am proficient in multiple coding languages and frameworks.',

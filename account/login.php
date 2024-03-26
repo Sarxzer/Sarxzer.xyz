@@ -131,7 +131,7 @@
                 </div>
                 <input class="submit" type="submit" name="login" value="<? echo translate('account_login_submit') ?>">
             </form>
-            <a href="/account/forgot-password"><? echo translate('account_login_password_forgot') ?></a>
+            <a href="/account/password-forgot"><? echo translate('account_login_password_forgot') ?></a>
         </div>
 
         <!--Register-->

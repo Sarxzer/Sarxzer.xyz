@@ -19,6 +19,7 @@ return [
     'menu_admin' => '> Admin',
     
     # index.php
+    'index_title' => '<Sarxzer/>',
     'index_welcome_back' => 'Bon retour, ',
     'index_my_description_1'=> 'C\'est moi, Nathan, un français de ',
     'index_my_description_2'=> ' ans passioné par la programation.<br>Avec une expérience en programation commençant à l\'âge de 12 ans, je suis compétent dans plusieurs langages de programmation et frameworks.',
