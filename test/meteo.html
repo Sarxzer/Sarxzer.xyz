@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meteo</title>
+</head>
+<body>
+
+    <div id="weatherDiv">
+
+    </div>
+    
+
+    <script>
+        const weatherDiv = document.getElementById('weatherDiv');
+
+        async function fetchWeather() {
+            try {
+                const ipInfo = await fetch('https://ipinfo.io/json?b8e8572521f975');
+                dataPosition = await ipInfo.json();
+                                    
+                position = dataPosition.loc.split(',');
+                position += dataPosition.city;
+            } catch {
+                position = [48.8534,2.3488,'Paris']
+            }
+            
+            const dataWeather = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${position[0]}&longitude=${position[1]}&current=temperature_2m`);
+            const weather = await dataWeather.json();
+            console.log(weather);
+
+            weatherDiv.textContent = `Température à ${position[2]} : ${weather.current.temperature_2m}`;
+        }
+
+        fetchWeather()
+    </script>
+</body>
+</html>
