@@ -16,7 +16,7 @@
         $lang = $_GET['lang'];
     }
 
-    if ($lang != 'en' && $lang != 'fr') {
+    if ($lang != 'en' && $lang != 'fr' && $lang != 'llc') {
         $lang = 'en';
     }
 
