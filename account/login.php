@@ -30,7 +30,7 @@
 
             $json = file_get_contents('../src/secret.json');
             $secret = json_decode($json, true)['encrypt']['mail'];
-            $EncryptedEmail = openssl_encrypt($email, $secret['algo'], $secret['key'], 0, $secret['iv']);
+            $EncryptedEmail = openssl_encrypt($email, $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
 
             $query = $mysqlClient->prepare('SELECT * FROM users WHERE username = :username OR email = :email');
             $query->execute([
@@ -74,7 +74,7 @@
 
         $json = file_get_contents('../src/secret.json');
         $secret = json_decode($json, true)['encrypt']['mail'];
-        $email = openssl_encrypt($username, $secret['algo'], $secret['key'], 0, $secret['iv']);
+        $email = openssl_encrypt($username, $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
 
         $query = $mysqlClient->prepare('SELECT * FROM users WHERE username = :username OR email = :email');
         $query->bindParam(':username', $username);
@@ -89,7 +89,7 @@
                 session_start();
                 $_SESSION['id'] = $user['id'];
                 $_SESSION['username'] = $user['username'];
-                $_SESSION['email'] = openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']);
+                $_SESSION['email'] = openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
                 $_SESSION['last_comment_time'] = time();
                 // Redirect to a protected page
                 header('Location: /');

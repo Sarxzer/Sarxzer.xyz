@@ -33,7 +33,7 @@
         <h4><? echo translate('account_index_change_email') ?></h4>
         <form id="change_email" action="" method="post">
             <label for="email"><? echo translate('account_index_email') ?></label>
-            <input type="email" name="email" id="email" placeholder="E-Mail" value="<? echo openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']) ?>">
+            <input type="email" name="email" id="email" placeholder="E-Mail" value="<? echo openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']) ?>">
             <input class="submit" type="submit" name="change_email" value="<? echo translate('account_index_change_email') ?>">
         </form>
         
@@ -73,7 +73,7 @@
                 } else {
                     $token = bin2hex(random_bytes(32));
 
-                    $encryptedEmail = openssl_encrypt($email, $secret['algo'], $secret['key'], 0, $secret['iv']);
+                    $encryptedEmail = openssl_encrypt($email, $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
 
                     $query = $mysqlClient->prepare('UPDATE users SET token = :token, email = :email WHERE id = :id');
                     $query->execute([
@@ -101,7 +101,7 @@
 
                             require '../src/php/mailer.php';
                             
-                            sendMail(openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']), 'Password changed', 'Your password has been changed on Sarxzer.xyz, if you didn\'t change your password, please contact us at <a href="mailto:nathan@sarxzer.xyz" target="_blank">nathan@sarxzer.xyz</a>.', $user['username']);
+                            sendMail(openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']), 'Password changed', 'Your password has been changed on Sarxzer.xyz, if you didn\'t change your password, please contact us at <a href="mailto:nathan@sarxzer.xyz" target="_blank">nathan@sarxzer.xyz</a>.', $user['username']);
                             
                             header('Location: /account/');
                         } else {
@@ -122,7 +122,7 @@
                         $backup = $mysqlClient->prepare('INSERT INTO deleted_users (username, email, password, birthday, country, website, bio) VALUES (:username, :email, :password, :birthday, :country, :website, :bio)');
                         $backup->execute([
                             'username' => $user['username'],
-                            'email' => openssl_encrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']),
+                            'email' => openssl_encrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']),
                             'password' => $user['password'],
                             'birthday' => $user['birthday'],
                             'country' => $user['country'],

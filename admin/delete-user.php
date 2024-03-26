@@ -50,7 +50,7 @@
             $backup->execute([
                 'id' => $user['id'],
                 'token' => $user['token'],
-                'email' => openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']),
+                'email' => openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']),
                 'username' => $user['username'],
                 'password' => $user['password'],
                 'is_verified' => $user['is_verified'],

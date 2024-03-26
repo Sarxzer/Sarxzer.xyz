@@ -39,11 +39,7 @@
             <label for="name"><? echo translate('contact_form_username') ?></label>
             <input type="text" name="username" placeholder="<? echo translate('contact_form_username_placeholder') ?>" required value="<? echo isset($_SESSION['id']) ? $user['username'] :'' ?>">
             <label for="email"><? echo translate('contact_form_email') ?></label>
-<<<<<<< HEAD
-            <input type="text" name="email" placeholder="<? echo translate('contact_form_email_placeholder') ?>" required value="<? echo isset($_SESSION['id']) ? openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']) :'' ?>">
-=======
-            <input type="text" name="email" placeholder="<? echo translate('contact_form_email_placeholder') ?>" required value="<? echo isset($_SESSION['id']) ? openssl_decrypt($user['email'], 'aes-256-cbc', 'S[i:FMy{f/c38S^3U8z7$CS3=(kp3Fe4', 0, '45q#A:5=tRbRd*5C') :'' ?>">
->>>>>>> 922ad2846663346145f7fc97b287e3a178c1bb11
+            <input type="text" name="email" placeholder="<? echo translate('contact_form_email_placeholder') ?>" required value="<? echo isset($_SESSION['id']) ? openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']) :'' ?>">
             <label for="category"><? echo translate('contact_form_category') ?></label>
             <select name="category" required>
                 <option value="bug"><? echo translate('contact_form_category_bug') ?></option>

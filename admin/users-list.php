@@ -53,7 +53,7 @@
             echo '<tr>';
             echo '<td>' . $user['id'] . '</td>';
             echo '<td>' . htmlspecialchars($user['username']) . '</td>';
-            echo '<td>' . openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']) . '</td>';
+            echo '<td>' . openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']) . '</td>';
             echo '<td>' . $user['role'] . '</td>';
             echo '<td>' . ($user['is_verified'] == 1 ? 'True' : 'False') . '</td>';
             echo '<td>' . $user['created_at'] . '</td>';

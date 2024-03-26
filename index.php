@@ -65,21 +65,18 @@
                     <img src="/src/img/logo-fiverr.png" alt="Fiverr logo">
                 </a>
             </div>
-<<<<<<< HEAD
             <div class="scrolling-project-card">
                 <a href="/projects/pass-gen" class="long card">
                     <? echo translate('index_pass_gen') ?>
                     <img src="/src/png/pass-gen-logo.png" alt="Password Generator">
                 </a>
             </div>
-=======
->>>>>>> 922ad2846663346145f7fc97b287e3a178c1bb11
         </div>
 
         <? include 'footer.php'; ?>
 
         <script>
-            snow(150, 15, 25, 15, 5);
+            //snow(150, 15, 25, 15, 5);
 
             document.getElementById('age').textContent = timeSince('2007-05-26', 'years')
             const title = document.getElementById('title');

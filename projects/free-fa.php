@@ -30,7 +30,7 @@
 
 
     <script>
-        snow(150, 15, 25, 15, 5);
+        //snow(150, 15, 25, 15, 5);
         
         const title = document.getElementById('title');
         simulateDeleting(100, title);

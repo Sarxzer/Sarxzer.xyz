@@ -7,12 +7,9 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^([^\.]+)$ $1.php [NC,L]
 
-<<<<<<< HEAD
 # Rewrite \link\customlink to \link?id=customlink
 RewriteRule ^link/([^/]+)$ /link?id=$1 [L]
 
-=======
->>>>>>> 922ad2846663346145f7fc97b287e3a178c1bb11
 # Redirect rules
 Redirect 301 /login /account/login
 
@@ -36,13 +33,10 @@ AddDefaultCharset utf-8
 # Set default timezone
 SetEnv TZ Europe/Paris
 
-<<<<<<< HEAD
 # Forbid access to some fields
 <FilesMatch "(\.htaccess|\.htpasswd|secret\.json)">
     Order allow,deny
     Deny from all
 </FilesMatch>
 
-=======
->>>>>>> 922ad2846663346145f7fc97b287e3a178c1bb11
 </IfModule>

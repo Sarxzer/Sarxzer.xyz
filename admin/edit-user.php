@@ -40,7 +40,7 @@
         <label for="username">Username: </label>
         <input type="text" name="username" placeholder="Username" value="<? echo $user['username']; ?>">
         <label for="email">E-Mail: </label>
-        <input type="email" name="email" placeholder="E-Mail" value="<? echo openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']); ?>">
+        <input type="email" name="email" placeholder="E-Mail" value="<? echo openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']); ?>">
         <label for="role">Role: </label>
         <select name="role">
             <option value="user" <? echo $user['role'] == 'user' ? 'selected' : ''; ?>>User</option>
@@ -98,7 +98,7 @@
             echo '(This is a temporary password, please change it as soon as possible)';
 
             include '../src/php/mailer.php';
-            sendMail(openssl_decrypt($user['email'], $secret['algo'], $secret['key'], 0, $secret['iv']), 'Password reset', 'Hello ' . $user['username'] . ', your password has been reset. Your new password is: ' . $password . '. This is a temporary password, please change it as soon as possible. <br> If you did not request a password reset, please contact us at <a href="mailto:nathan@sarxzer.xyz" target="_blank">nathan@sarxzer.xyz</a>');
+            sendMail(openssl_decrypt($user['email'], $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']), 'Password reset', 'Hello ' . $user['username'] . ', your password has been reset. Your new password is: ' . $password . '. This is a temporary password, please change it as soon as possible. <br> If you did not request a password reset, please contact us at <a href="mailto:nathan@sarxzer.xyz" target="_blank">nathan@sarxzer.xyz</a>');
         }
 
 
