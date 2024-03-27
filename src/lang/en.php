@@ -192,6 +192,15 @@ return [
     'blogs_create_zone_title_ex' => 'Ex: Peter Piper Tongue Twister',
     'blogs_create_zone_content' => '> Content:',
     'blogs_create_zone_content_ex' => 'Ex: Peter Piper picked a peck of pickled peppers. How many pickled peppers did Peter Piper pick?',
+    'blogs_create_zone_tags' => '> Tags: ',
+    
+    'blogs_create_zone_tags_web_dev' => 'Web development',
+    'blogs_create_zone_tags_game_dev' => 'Game development',
+    'blogs_create_zone_tags_prog' => 'Programming',
+    'blogs_create_zone_tags_design' => 'Design',
+    'blogs_create_zone_tags_tuto' => 'Tutorial',
+    'blogs_create_zone_tags_other' => 'Other',
+
     'blogs_create_zone_language' => 'Post language: ',
     'blogs_create_note' => '"Notes: Blogs handle Markdown, so you can make <b>**bold**</b> or <i>*italic*</i> text. <a href="https://www.markdownguide.org/basic-syntax/">More infos about Markdown</a>"',
     'blogs_create_button' => 'Create blog post 📝',
