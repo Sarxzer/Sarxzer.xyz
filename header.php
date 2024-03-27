@@ -22,6 +22,11 @@
 
     if (isset($_POST['lang'])) {
         $_SESSION['lang'] = $_POST['lang'];
+        $url = $_SERVER['REQUEST_URI'];
+        $url = preg_replace('/(\?|&)lang=[^&]*(&|$)/', '$1', $url);
+
+        header('Location: ' . $url);
+        exit();
     }
 
     if (!isset($_translateIsLoaded)) {
