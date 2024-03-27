@@ -17,7 +17,7 @@
         $_SESSION['lang'] = $lang;
     }
 
-    if ($lang != 'en' && $lang != 'fr' && $lang != 'llc') {
+    if ($lang != 'en' && $lang != 'fr' && $lang != 'llc' && $lang != 'frmd') {
         $lang = 'llc';
     }
 

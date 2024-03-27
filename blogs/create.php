@@ -22,6 +22,15 @@
                 <textarea name="content" id="content" cols="30" rows="10" placeholder="<? echo translate('blogs_create_zone_content_ex'); ?>" required><? isset($_POST['content']) ? $_POST['content'] : '' ?></textarea>
             </div>
             <div class="category">
+                <label for="tags"><? echo translate('blogs_create_zone_tags'); ?></label>
+                <select name="tags" id="tags">
+                    <option value="web_dev"><? echo translate('blogs_create_zone_tags_web_dev')?></option>
+                    <option value="game_dev"><? echo translate('blogs_create_zone_tags_game_dev')?></option>
+                    <option value="prog"><? echo translate('blogs_create_zone_tags_prog')?></option>
+                    <option value="design"><? echo translate('blogs_create_zone_tags_design')?></option>
+                    <option value="tuto"><? echo translate('blogs_create_zone_tags_tuto')?></option>
+                    <option value="other"><? echo translate('blogs_create_zone_tags_other')?></option>
+                </select>
                 <label for="lang"><? echo translate('blogs_create_zone_language')?></label>
                 <select name="lang" id="lang">
                     <option value="en">English</option>
@@ -61,6 +70,7 @@
                 }
                 $title = $_POST['title'];
                 $content = $_POST['content'];
+                $tags = $_POST['tags'];
                 $blogLang = $_POST['lang'];
 
                 if (empty($title) || empty($content)) {
@@ -70,11 +80,12 @@
                 } else if (strlen($content) < 10 || strlen($content) > 1000) {
                     echo translate('blogs_create_content_must');
                 } else {
-                    $insertQuery = $mysqlClient->prepare("INSERT INTO blogs (title, content, author_id, lang) VALUES (:title, :content, :author_id, :lang)");
+                    $insertQuery = $mysqlClient->prepare("INSERT INTO blogs (title, content, author_id, tags, lang) VALUES (:title, :content, :author_id, :tags, :lang)");
                     $insertQuery->execute([
                         'title' => $title, 
                         'content' => $content, 
                         'author_id' => $_SESSION['id'],
+                        'tags' => $tags,
                         'lang' => $blogLang
                     ]);
                     $idQuery = $mysqlClient->prepare("SELECT id FROM blogs WHERE title = :title");
