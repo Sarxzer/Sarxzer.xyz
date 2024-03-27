@@ -49,7 +49,7 @@
         <div class="project-card">
             <a href="/projects/pass-gen" class="card">
                 > Password Generator
-                <img src="/src/png/pass-gen.png" alt="Password Generator">
+                <img src="/src/img/pass-gen.png" alt="Password Generator">
             </a>
         </div>
     </div>
