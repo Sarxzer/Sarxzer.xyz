@@ -68,7 +68,7 @@
             <div class="scrolling-project-card">
                 <a href="/projects/pass-gen" class="long card">
                     <? echo translate('index_pass_gen') ?>
-                    <img src="/src/png/pass-gen-logo.png" alt="Password Generator">
+                    <img src="/src/png/pass-gen.png" alt="Password Generator">
                 </a>
             </div>
         </div>
