@@ -14,8 +14,9 @@
             $user = null;
         }
         
-        $json = file_get_contents('./src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
+        include './src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
 
     ?>
     <title><? echo translate('contact_title') ?> | Sarxzer</title>

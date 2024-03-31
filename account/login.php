@@ -28,8 +28,9 @@
             $message = 'Invalid email';
         } else {
 
-            $json = file_get_contents('../src/secret.json');
-            $secret = json_decode($json, true)['encrypt']['mail'];
+            include '../src/secret.php';
+            $secret = $secret['encrypt']['mail'];
+
             $EncryptedEmail = openssl_encrypt($email, $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
 
             $query = $mysqlClient->prepare('SELECT * FROM users WHERE username = :username OR email = :email');
@@ -72,8 +73,9 @@
         $username = htmlspecialchars($_POST['login_username']);
         $password = htmlspecialchars($_POST['login_password']);
 
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
+        include '../src/secret.php';
+        $secret = $secret['encrypt']['mail'];
+        
         $email = openssl_encrypt($username, $secret['algo'], base64_decode($secret['key']), 0, $secret['iv']);
 
         $query = $mysqlClient->prepare('SELECT * FROM users WHERE username = :username OR email = :email');
@@ -180,11 +182,11 @@
         const passwordConfirm = document.getElementById('register_password_confirm');
         const submit = document.getElementById('register_submit');
         const strength = {
-            0: '<? echo translate('account_login_strength_0') ?>',
-            1: '<? echo translate('account_login_strength_1') ?>',
-            2: '<? echo translate('account_login_strength_2') ?>',
-            3: '<? echo translate('account_login_strength_3') ?>',
-            4: '<? echo translate('account_login_strength_4') ?>'
+            0: '<? echo translate('account_login_register_password_strength_0') ?>',
+            1: '<? echo translate('account_login_register_password_strength_1') ?>',
+            2: '<? echo translate('account_login_register_password_strength_2') ?>',
+            3: '<? echo translate('account_login_register_password_strength_3') ?>',
+            4: '<? echo translate('account_login_register_password_strength_4') ?>'
         }
         const colors = {
             0: '#ff0000',

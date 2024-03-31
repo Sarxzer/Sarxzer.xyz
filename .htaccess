@@ -34,7 +34,7 @@ AddDefaultCharset utf-8
 SetEnv TZ Europe/Paris
 
 # Forbid access to some fields
-<FilesMatch "(\.htaccess|\.htpasswd|secret\.json)">
+<FilesMatch "(\.htaccess|\.htpasswd|secret\.php|/\.git|/\.vscode)">
     Order allow,deny
     Deny from all
 </FilesMatch>

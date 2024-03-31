@@ -10,8 +10,9 @@
     $query->execute();
     $unverifiedUsers = $query->fetchAll();
 
-    $json = file_get_contents('./src/secret.json');
-    $secret = json_decode($json, true)['encrypt']['mail'];
+    include '../src/secret.php';
+
+    $secret = $secret['encrypt']['mail'];
 
     foreach ($unverifiedUsers as $user) {
         if (time() - strtotime($user['created_at']) > 2592000) {

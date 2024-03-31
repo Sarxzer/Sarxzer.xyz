@@ -36,8 +36,9 @@
             header('Location: /account/login');
         }
 
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
+        include '../src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
         
     ?>
 </head>

@@ -25,14 +25,14 @@
 
         if (isset($_SESSION['id'])) {
 
-            include("src/php/db.php");
+            include "src/php/db.php";
 
             $_tempQuery = $mysqlClient->prepare("SELECT * FROM users WHERE id = :id");
             $_tempQuery->execute(['id' => $_SESSION['id']]);
             $_temp = $_tempQuery->fetch();
 
             if (!isset($_isLoaded)) {
-                include("src/php/notify.php");
+                include "src/php/notify.php";
             }
 
             if ($_temp['id'] == 26 || $_temp['id'] == 37) {

@@ -25,8 +25,6 @@
             echo '<title>Edit"' . $user['username'] . '" | Sarxzer</title>';
         }
 
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
     ?>
 </head>
 <body>
@@ -35,6 +33,11 @@
 
 
     <h1 class="title small" id="title">.</h1>
+
+    <?
+        include '../src/secret.php';
+        $secret = $secret['encrypt']['mail'];
+    ?>
 
     <form action="" method="post">
         <label for="username">Username: </label>

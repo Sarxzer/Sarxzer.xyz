@@ -19,9 +19,6 @@
             }
         }
 
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
-
     
     ?>
 </head>
@@ -38,6 +35,10 @@
         $usersQuery = $mysqlClient->prepare("SELECT * FROM users");
         $usersQuery->execute();
         $users = $usersQuery->fetchAll();
+
+        include '../src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
 
         echo '<table>';
         echo '<tr>';

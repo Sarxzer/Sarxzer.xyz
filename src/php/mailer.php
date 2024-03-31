@@ -5,8 +5,9 @@
         require __DIR__ . '/phpmailer/Exception.php';
         require __DIR__ . '/db.php';
 
-        $json = file_get_contents('./src/secret.json');
-        $secret = json_decode($json, true)['mail'];
+        include '../src/secret.php';
+
+        $secret = $secret['mail'];
     
         $mail = new PHPMailer\PHPMailer\PHPMailer();
         $mail->isSMTP();
