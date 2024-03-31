@@ -16,9 +16,6 @@
             'id' => $_SESSION['id']
         ]);
         $user = $query->fetch();
-
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
     ?>
 </head>
 <body>
@@ -27,6 +24,12 @@
 
 
     <h1 class="title small" id="title">.</h1>
+
+    <?
+        include '../src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
+    ?>
 
     <div class="settings">
         <h2><? echo translate('account_index_title') ?></h2>

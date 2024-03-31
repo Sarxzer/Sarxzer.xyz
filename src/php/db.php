@@ -1,5 +1,7 @@
 <?
-    $_tempJson = file_get_contents(__DIR__ . '/../secret.json');
-    $_tempSecret = json_decode($_tempJson, true)['db'];
+    include __DIR__ . '/../secret.php';
+
+    $_tempSecret = $secret['db'];
+
     $mysqlClient = new PDO('mysql:host=' . $_tempSecret["host"] . ';dbname=' . $_tempSecret["dbname"] . ';charset=utf8',$_tempSecret['user'],$_tempSecret['password']);
 ?>

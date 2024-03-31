@@ -26,9 +26,6 @@
             echo '<title>Delete"' . $user['username'] . '"? | Sarxzer</title>';
         }
 
-        $json = file_get_contents('../src/secret.json');
-        $secret = json_decode($json, true)['encrypt']['mail'];
-
     ?>
 </head>
 <body>
@@ -37,6 +34,12 @@
 
 
     <h1 class="title small" id="title">.</h1>
+
+    <?
+           include '../src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
+    ?>
 
     <form action="" method="POST">
         <p class="text">Are you sure you want to delete "<? echo $user['username']; ?>"?</p>
