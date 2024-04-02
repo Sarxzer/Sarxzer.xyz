@@ -35,10 +35,6 @@
         } else {
             header('Location: /account/login');
         }
-
-        include '../src/secret.php';
-
-        $secret = $secret['encrypt']['mail'];
         
     ?>
 </head>
@@ -48,6 +44,12 @@
 
 
     <h1 class="title small" id="title">.</h1>
+
+    <?
+        include '../src/secret.php';
+
+        $secret = $secret['encrypt']['mail'];
+    ?>
 
     <div class="user-infos">
         <h2 class="user-info-title"><? echo translate('account_user_infos_title'); ?></h2>

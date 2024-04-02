@@ -67,7 +67,7 @@
             }
 
             if ($blog['creation_date'] != $blog['edit_date']) {
-                echo '<p class="text right">' . translate('blogs_blog_post_edited_on') . date_format(date_create($blog['edit_date']), 'l d F Y') . translate('blogs_blog_post_at') . date_format(date_create($blog['edit_date']), 'H:i') . '</p>';
+                echo '<p class="text right">' . translate('blogs_blog_post_edited_on') . translateDate(date_format(date_create($blog['edit_date']), 'l d F Y')) . translate('blogs_blog_post_at') . date_format(date_create($blog['edit_date']), 'H:i') . '</p>';
             } else {
                 echo '<p class="text right">'. translate('blogs_blog_post_created_on') . date_format(date_create($blog['creation_date']), 'l d F Y') . translate('blogs_blog_post_at') . date_format(date_create($blog['creation_date']), 'H:i') . '</p>';
             }
@@ -92,6 +92,10 @@
             <input type="text" name="content" id="content" placeholder="Comment" class="input">
             <input type="text" name="honeypot" id="honeypot" style="display: none;">
             <button type="submit" name="submit" class="submit"><i class="fa-solid fa-paper-plane-top"></i></button>
+            <div class="multilines">
+                <input type="checkbox" name="multilines" id="multilines">
+                <label for="multilines"><i class="fa-solid fa-text"></i></label>
+            </div>
         </form>
     </div>
 
@@ -101,7 +105,7 @@
             if (isset($_SESSION['id'])) {
                     if (empty($_POST['honeypot'])) {
                         if (isset($_SESSION['last_comment_time']) || $_SESSION['last_comment_time'] < time() - 10) {
-                            $content = htmlspecialchars($_POST['content']);
+                            $content = $_POST['content'];
                             if (empty($content)) {
                                 echo '<p class="text">'.translate('blogs_blog_comment_please_fill').'</p>';
                             } else {
@@ -116,7 +120,6 @@
 
                                 createNotificationForBlog($blog['id'], translate('blogs_blog_comment_normal'), translate('blogs_blog_comment_your_blog'), $mysqlClient);
                             
-                                header('Location: /blogs/blog?id=' . $blog['id']);
                             }
                         } else {
                             echo '<p class="text">'.translate('blogs_blog_comment_fast').'</p>';
@@ -213,6 +216,18 @@
         echo 'simulateTyping(\'' . $blog['title'] . '\', 100, title);';
         echo '</script>';
     ?>
+
+    <script>
+        $('#multilines').change(function() {
+            if(this.checked) {
+                var content = $('#content').val();
+                $('#content').replaceWith('<textarea id="content">' + content + '</textarea>');
+            } else {
+                var content = $('#content').val();
+                $('#content').replaceWith('<input type="text" name="content" id="content" placeholder="Comment" class="input" value="' + content + '">');
+            }
+        });
+    </script>
 
 </body>
 </html>

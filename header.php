@@ -6,6 +6,7 @@
 <link href="/src/css/prism.css" rel="stylesheet" />
 <link rel="shortcut icon" href="/src/svg/logo.svg" type="image/x-icon">
 <script src="/src/js/script.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
 ;(function () {
     var src = '//cdn.jsdelivr.net/npm/eruda';

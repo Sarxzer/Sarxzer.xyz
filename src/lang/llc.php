@@ -1,5 +1,31 @@
 <?
 return [
+    #general
+    'days' => [
+        'Monday' => 'mondai',
+        'Tuesday' => 'tuezdai',
+        'Wednesday' => 'wenzdai',
+        'Thursday' => 'thurzdei',
+        'Friday' => 'fraidei',
+        'Saturday' => 'saturdei',
+        'Sunday' => 'sundai',
+    ],
+    'months' => [
+        'January' => 'janauri',
+        'February' => 'februari',
+        'March' => 'march',
+        'April' => 'april',
+        'May' => 'mai',
+        'June' => 'june',
+        'July' => 'julai',
+        'August' => 'august',
+        'September' => 'spetembur',
+        'October' => 'oktobur',
+        'November' => 'novembur',
+        'December' => 'christmaz',
+    ],
+
+
     # menu.php
     'menu_home' => '> Cheezburger',
     'menu_projects' => '> Projekts',
@@ -174,18 +200,18 @@ return [
     'blogs_blog_post_unknown' => 'Unknowz',
     'blogs_blog_post_by_you' => 'By u',
     'blogs_blog_post_by' => 'By ',
-    'blogs_blog_post_edited_on' => 'Edited on ',
+    'blogs_blog_post_edited_on' => 'Meowdified on ',
     'blogs_blog_post_at' => ' at ',
-    'blogs_blog_post_created_on' => 'Created on ',
+    'blogs_blog_post_created_on' => 'Kreated on ',
     'blogs_blog_post_edit' => 'Edit',
     'blogs_blog_post_delete' => 'Delete',
     'blogs_blog_comment_please_fill' => 'Plz fill all da fieldz',
     'blogs_blog_comment_normal' => 'normal',
-    'blogs_blog_comment_your_blog' => 'Someone commented on ur blog',
-    'blogs_blog_comment_fast' => 'U are commenting too fast',
-    'blogs_blog_comment_bot' => 'U are a bot',
+    'blogs_blog_comment_your_blog' => 'A friend commented on ur blog',
+    'blogs_blog_comment_fast' => 'U r commenting too fast',
+    'blogs_blog_comment_bot' => 'U r a bot',
     'blogs_blog_comment_logged' => 'Plz log in to comment',
-    'blogs_blog_zone_no_comments' => 'No comments yet',
+    'blogs_blog_zone_no_comments' => 'No commentz yet *<em>sad cat</em>*',
 
     # blogs create.php
     'blogs_create_title' => 'Kreate a blob',
@@ -236,8 +262,8 @@ return [
     'blogs_index_post_search_blog' => 'Search fur a blob...',
     'blogs_index_post_author' => '> Kreatur: ',
     'blogs_index_post_search_author' => 'Find a kreatur...',
-    'blogs_index_newest' => 'Newest',
-    'blogs_index_oldest' => 'Oldest',
+    'blogs_index_newest' => 'Butiful new',
+    'blogs_index_oldest' => 'Old but gold',
     'blogs_index_search' => 'Find',
     'blogs_index_by_you' => 'By u',
     'blogs_index_by' => 'By ',
@@ -250,7 +276,7 @@ return [
 
     #footer.php
     'footer_copyright' => '© 2024 Sarxzer.xyz - Al rightz rezerved',
-    'footer_love' => 'Made wif <i class="fa-solid fa-heart"></i> by Sarkzewr'
+    'footer_love' => 'Made wif <i class="fa-solid fa-heart"></i> by Sarkzewr',
 
 ]
 

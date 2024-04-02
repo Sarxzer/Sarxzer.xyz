@@ -13,10 +13,7 @@
         } else {
             $user = null;
         }
-        
-        include './src/secret.php';
-
-        $secret = $secret['encrypt']['mail'];
+    
 
     ?>
     <title><? echo translate('contact_title') ?> | Sarxzer</title>
@@ -24,6 +21,11 @@
 <body>
 
     <? include 'menu.php'; ?>
+
+    <?
+    include './src/secret.php';
+    $secret = $secret['encrypt']['mail'];
+    ?>
 
 
     <h1 class="title small" id="title">.</h1>

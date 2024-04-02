@@ -32,7 +32,18 @@
         }
     }
 
+    function translateDate($date) {
+        global $lang;
+        $translate = include __DIR__ . '/../lang/' . $lang . '.php';
 
+        $months = $translate['months'];
+        $days = $translate['days'];
 
+        $date = explode(' ', $date);
+        $weekDay = $date[0];
+        $day = $date[1];
+        $month = $date[2];
+        $year = $date[3];
 
-?>
+        return $days[$weekDay] . ' ' . $day . ' ' . $months[$month] . ' ' . $year;
+    }
