@@ -1107,7 +1107,7 @@ div.comment-form {
     background-color: black;
     margin: 5px;
 
-    input {
+    input#content {
       margin: 0;
       padding: 5px;
       border: none;
@@ -1118,10 +1118,63 @@ div.comment-form {
       width: 200px;
       overflow-x: visible;
       transition: width 0.5s ease-in-out, border 0.5s ease-in-out;
+
+      &:focus {
+        width: 500px;
+      }
     }
 
-    input:focus {
-      width: 500px;
+    textarea {
+      margin: 0;
+      padding: 5px;
+      border: none;
+      border: bisque solid 2px;
+      background-color: black;
+      color: bisque;
+      font-size: 15px;
+      font-family: 'Ubuntu', serif;
+      width: 50%;
+      height: 100%;
+      box-sizing: border-box;
+
+      transition: width 0.5s ease-in-out, border 0.5s ease-in-out;
+
+      &:focus {
+        width: 100%;
+      }
+    }
+
+    .multilines {
+      display: flex;
+      flex-direction: column;
+      align-items: left;
+      input {
+
+        display: none;
+
+        &:checked + label {
+          background-color: bisque;
+          color: black;        }
+      }
+
+      label {
+        margin: 0;
+        padding: 5px;
+        text-align: left;
+        text-decoration: none;
+        border: 1px solid bisque;
+        background-color: black;
+        color: bisque;
+        font-size: 15px;
+        font-family: 'Ubuntu', serif;
+        transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        cursor: pointer;
+
+        &:hover {
+          background-color: bisque;
+          color: black;
+        }
+      }
     }
 
     .submit {

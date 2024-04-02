@@ -978,7 +978,7 @@ div.comment-form form {
   background-color: black;
   margin: 5px;
 }
-div.comment-form form input {
+div.comment-form form input#content {
   margin: 0;
   padding: 5px;
   border: none;
@@ -990,8 +990,54 @@ div.comment-form form input {
   overflow-x: visible;
   transition: width 0.5s ease-in-out, border 0.5s ease-in-out;
 }
-div.comment-form form input:focus {
+div.comment-form form input#content:focus {
   width: 500px;
+}
+div.comment-form form textarea {
+  margin: 0;
+  padding: 5px;
+  border: none;
+  border: bisque solid 2px;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  width: 50%;
+  height: 100%;
+  box-sizing: border-box;
+  transition: width 0.5s ease-in-out, border 0.5s ease-in-out;
+}
+div.comment-form form textarea:focus {
+  width: 100%;
+}
+div.comment-form form .multilines {
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+}
+div.comment-form form .multilines input {
+  display: none;
+}
+div.comment-form form .multilines input:checked + label {
+  background-color: bisque;
+  color: black;
+}
+div.comment-form form .multilines label {
+  margin: 0;
+  padding: 5px;
+  text-align: left;
+  text-decoration: none;
+  border: 1px solid bisque;
+  background-color: black;
+  color: bisque;
+  font-size: 15px;
+  font-family: "Ubuntu", serif;
+  transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+  cursor: pointer;
+}
+div.comment-form form .multilines label:hover {
+  background-color: bisque;
+  color: black;
 }
 div.comment-form form .submit {
   margin: 0;
